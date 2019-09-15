@@ -1,0 +1,16 @@
+.container {
+    height: 800px;
+    background-color: #adb7c9;
+}
+
+.options-container {
+    height: 5%;
+}
+
+.conversation-container {
+    height: 95%;
+}
+
+.col-4, .col-8 {
+    border: solid 1px black;
+}
