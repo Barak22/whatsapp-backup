@@ -1,7 +1,5 @@
 package com.example.whatsapp.server.core.services
 
-import java.io.{BufferedReader, File, FileReader}
-
 import com.example.whatsapp.server.core.dto.{Conversation, Message}
 import com.example.whatsapp.server.core.mapper.DefaultObjectMapper
 import com.example.whatsapp.server.core.parsers.ChatFileParser
@@ -11,12 +9,12 @@ import org.springframework.stereotype.Service
 class ConversationService() {
 
   def extractConversation = {
-    val chatFile = new BufferedReader(new FileReader(new File(ConversationService.chatFile)))
+    //    val chatFile = new BufferedReader(new FileReader(new File(ConversationService.chatFile)))
     // TODO: Get the name of the conversation not hardcoded but from file or cookie
     val chatFileParser = new ChatFileParser("Pini")
     val objectMapper = new DefaultObjectMapper()
 
-    chatFileParser.parseChatFile(chatFile)
+    //    chatFileParser.parseChatFile(chatFile)
 
 
     val firstMessage = Message(

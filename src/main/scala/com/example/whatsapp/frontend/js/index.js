@@ -24,12 +24,27 @@
 // }
 
 function inputFileOnChange(file) {
-  const path = document.getElementById('input-file').files[0];
-  const reader = new FileReader();
-  console.log(path);
-  reader.readAsBinaryString(path);
-  reader.onloadend = e => {
-    console.log(e.target.result); // TODO: Send the zip file to the scala server
-  }
+  const request = document.getElementById('input-file').files[0];
+  // const reader = new FileReader();
+  // console.log(path);
+  // reader.readAsBinaryString(path);
+  // reader.onloadend = e => {
+  //   const request = e.target.result; // TODO: Send the zip file to the scala server
+  console.log(request)
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:8080/upload');
+  xhr.onload = () => {
+    console.log(xhr);
+    if (xhr.status === 200) {
+      // File(s) uploaded.
+      console.log('Upload');
+    } else {
+      alert('An error occurred!');
+    }
+  };
+  xhr.setRequestHeader('Content-Type', 'application/zip');
+  console.log(xhr.send(request))
+
+  // }
 
 }
