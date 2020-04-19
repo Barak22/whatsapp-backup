@@ -12,6 +12,8 @@ import scala.annotation.tailrec
 import scala.collection.JavaConverters._
 
 class ChatFileParser(conversationName: String) {
+  val x = 3
+
   def parseChatFile(chatFile: BufferedReader): Conversation = {
     val messages: Seq[(DateTime, Message)] = parseChatFileHelper(
       chatFile.lines().collect(Collectors.toList()).asScala,
